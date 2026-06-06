@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Anvi 💌</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ffd6e7,#fff5fa);
+    overflow:hidden;
+}
+
+.letter{
+    background:white;
+    width:350px;
+    padding:25px;
+    border-radius:25px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    z-index:10;
+}
+
+h2{
+    color:#ff5c8a;
+    margin-bottom:15px;
+}
+
+p{
+    color:#555;
+    line-height:1.7;
+}
+
+.quote{
+    margin-top:15px;
+    color:#ff6f91;
+    font-style:italic;
+    font-size:14px;
+}
+
+.heart{
+    position:absolute;
+    color:#ff6b9a;
+    font-size:20px;
+    animation:float 8s linear infinite;
+}
+
+@keyframes float{
+    0%{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    20%{
+        opacity:1;
+    }
+    100%{
+        transform:translateY(-120px);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="letter">
+    <h2>💌 Dear Anvi</h2>
+
+    <p>
+        Thank you for listening to my problems,
+        supporting me when I need it the most,
+        and never judging me.
+        Talking to you always brings a smile to my face.
+        I'm really grateful to have a friend like you. 🤍
+    </p>
+
+    <div class="quote">
+        "Some friends make the world brighter just by being in it." ✨
+    </div>
+</div>
+
+<script>
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+    document.body.appendChild(heart);
+}
+</script>
+
+</body>
+</html>
