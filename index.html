@@ -1,105 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+/* HEART BACKGROUND */
+.hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.hearts span {
+    position: absolute;
+    color: rgba(255, 0, 100, 0.5);
+    font-size: 20px;
+    animation: float 6s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(100vh) scale(0.5);}
+    100% {transform: translateY(-10vh) scale(1.5);}
+}
+
+/* PAGE (FLIP EFFECT) */
+.page {
+    position: absolute;
+    width: 80%;
+    max-width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateY(90deg);
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255,0,100,0.3);
+    opacity: 0;
+    transition: 0.6s;
+    z-index: 2;
+}
+
+.page.active {
+    transform: translate(-50%, -50%) rotateY(0deg);
+    opacity: 1;
+}
+
+/* BUTTON */
+button {
+    margin-top: 15px;
+    padding: 10px 15px;
+    border: none;
+    background: crimson;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* TYPING EFFECT */
+.typing {
+    white-space: pre-line;
+    border-right: 2px solid white;
+    animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="hearts" id="hearts"></div>
+
 <!-- PAGE 1 -->
-<div id="page1" class="page">
+<div id="page1" class="page active">
 <h2>Dear Anvi 🤍</h2>
-
-<p>
-Thank you for always being there for me.
-Thank you for always listening to me,
-caring for me, supporting me,
-and never judging me.
-
-No matter what I am going through,
-you always make time to hear me out,
-and that means more than I can express in words.
-
-Talking to you makes even difficult days feel lighter.
-I'm truly grateful to have a friend like you in my life.
-
-✨ Some friends make the world brighter just by being in it. ✨
-</p>
-
+<p class="typing" id="text1"></p>
 <button onclick="nextPage(2)">Next ➜</button>
 </div>
-
 
 <!-- PAGE 2 -->
 <div id="page2" class="page">
 <h2>A Little Note 🌸</h2>
-
-<p>
-I don't know how long you'll stay in my life,
-and I don't know how long we'll keep talking.
-
-But I do know one thing —
-as long as you're here,
-I want to see you happy.
-
-I never want to see you sad.
-Your smile deserves to stay exactly where it belongs —
-on your face. 🤍
-
-Thank you for being such an important part
-of my life.
-</p>
-
+<p class="typing" id="text2"></p>
 <button onclick="nextPage(3)">Next ➜</button>
 </div>
-
 
 <!-- PAGE 3 -->
 <div id="page3" class="page">
 <h2>For Your Future 🦋</h2>
-
-<p>
-May you achieve every dream you work for.
-
-May you make your parents proud
-and become the amazing person
-you're meant to be.
-
-No matter where life takes us,
-I'll always pray for your happiness,
-success and peace.
-
-Keep shining, Anvi. ✨
-</p>
-
+<p class="typing" id="text3"></p>
 <button onclick="nextPage(4)">Next ➜</button>
 </div>
-
 
 <!-- PAGE 4 -->
 <div id="page4" class="page">
 <h2>🖤 4 Promises By Me 🤍</h2>
-
-<p>
-<b>1.</b> I will never leave you feeling alone.
-Whenever you need someone to talk to,
-I'll do my best to be there for you.
-
-<br><br>
-
-<b>2.</b> I will always be ready to listen
-to your problems, worries and thoughts,
-just like you've listened to mine.
-
-<br><br>
-
-<b>3.</b> I will never judge you for who you are.
-You can always be yourself around me.
-
-<br><br>
-
-<b>4.</b> I will always try my best
-to keep a smile on your face
-and support you through both good days
-and difficult ones.
-
-<br><br>
-
-✨ These are not just words,
-but promises from a grateful friend. ✨
-</p>
-
-<p><b>Made with gratitude for Anvi 🤍</b></p>
+<p class="typing" id="text4"></p>
 </div>
+
+<script>
+
+/* HEARTS */
+function createHearts() {
+    const hearts = document.getElementById("hearts");
+    for(let i=0;i<25;i++){
+        let span = document.createElement("span");
+        span.innerHTML = "❤";
+        span.style.left = Math.random()*100 + "%";
+        span.style.animationDuration = (3 + Math.random()*5) + "s";
+        span.style.fontSize = (10 + Math.random()*20) + "px";
+        hearts.appendChild(span);
+    }
+}
+createHearts();
+
+/* TYPING EFFECT */
+function typeText(id, text, speed=20){
+    let i = 0;
+    function typing(){
+        if(i < text.length){
+            document.getElementById(id).innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        }
+    }
+    typing();
+}
+
+/* TEXT CONTENT */
+typeText("text1",
+`Thank you for always being there for me.
+Thank you for listening, caring and supporting me.
+
+You always make my bad days better.
+I'm really grateful to have you in my life.
+
+✨ Some friends make the world brighter ✨`);
+
+typeText("text2",
+`I don't know how long we'll stay connected,
+but I always want you to be happy.
+
+Your smile means a lot.
+I never want to see you sad 🤍`);
+
+typeText("text3",
+`May you achieve every dream you have.
+Make your parents proud.
+
+I'll always pray for your happiness,
+success and peace ✨`);
+
+typeText("text4",
+`1. I will never leave you alone.
+2. I will always listen to you.
+3. I will never judge you.
+4. I will always try to make you smile.
+
+✨ These are my real promises ✨`);
+
+/* PAGE CHANGE + FLIP */
+function nextPage(num){
+    let pages = document.querySelectorAll(".page");
+    pages.forEach(p => p.classList.remove("active"));
+    document.getElementById("page"+num).classList.add("active");
+}
+
+</script>
+
+</body>
+</html>
