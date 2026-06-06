@@ -1,173 +1,105 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Anvi 💖</title>
-
-<style>
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#ffd6e7,#e8d7ff);
-height:100vh;
-overflow:hidden;
-display:flex;
-justify-content:center;
-align-items:center;
-}
-
-.card{
-background:white;
-width:340px;
-padding:25px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 10px 30px rgba(0,0,0,0.15);
-z-index:10;
-}
-
-.envelope{
-font-size:110px;
-cursor:pointer;
-}
-
-.page{
-display:none;
-}
-
-h2{
-color:#ff5c8a;
-}
-
-p{
-color:#555;
-line-height:1.7;
-}
-
-button{
-margin-top:15px;
-padding:10px 20px;
-border:none;
-border-radius:20px;
-background:#ff7aa8;
-color:white;
-font-size:16px;
-cursor:pointer;
-}
-
-.float{
-position:absolute;
-animation:float 10s linear infinite;
-pointer-events:none;
-}
-
-@keyframes float{
-0%{
-transform:translateY(100vh);
-opacity:0;
-}
-20%{
-opacity:1;
-}
-100%{
-transform:translateY(-120px);
-opacity:0;
-}
-}
-</style>
-</head>
-
-<body>
-
-<div class="card">
-
-<div id="start">
-<div class="envelope" onclick="openLetter()">💌</div>
-<p>Tap to Open</p>
-</div>
-
+<!-- PAGE 1 -->
 <div id="page1" class="page">
 <h2>Dear Anvi 🤍</h2>
+
 <p>
+Thank you for always being there for me.
 Thank you for always listening to me,
-supporting me, and never judging me.
+caring for me, supporting me,
+and never judging me.
+
+No matter what I am going through,
+you always make time to hear me out,
+and that means more than I can express in words.
 
 Talking to you makes even difficult days feel lighter.
-I'm really grateful to have a friend like you.
+I'm truly grateful to have a friend like you in my life.
 
 ✨ Some friends make the world brighter just by being in it. ✨
 </p>
+
 <button onclick="nextPage(2)">Next ➜</button>
 </div>
 
+
+<!-- PAGE 2 -->
 <div id="page2" class="page">
 <h2>A Little Note 🌸</h2>
+
 <p>
 I don't know how long you'll stay in my life,
 and I don't know how long we'll keep talking.
 
 But I do know one thing —
-as long as you're here, I want to see you happy.
+as long as you're here,
+I want to see you happy.
 
 I never want to see you sad.
 Your smile deserves to stay exactly where it belongs —
 on your face. 🤍
+
+Thank you for being such an important part
+of my life.
 </p>
+
 <button onclick="nextPage(3)">Next ➜</button>
 </div>
 
+
+<!-- PAGE 3 -->
 <div id="page3" class="page">
 <h2>For Your Future 🦋</h2>
+
 <p>
-May you achieve every dream you work for,
-make your parents proud,
-and become the amazing person you're meant to be.
+May you achieve every dream you work for.
+
+May you make your parents proud
+and become the amazing person
+you're meant to be.
 
 No matter where life takes us,
 I'll always pray for your happiness,
-success, and peace.
+success and peace.
 
 Keep shining, Anvi. ✨
 </p>
 
-<p><b>Made with gratitude for Anvi 💖</b></p>
+<button onclick="nextPage(4)">Next ➜</button>
 </div>
 
+
+<!-- PAGE 4 -->
+<div id="page4" class="page">
+<h2>🖤 4 Promises By Me 🤍</h2>
+
+<p>
+<b>1.</b> I will never leave you feeling alone.
+Whenever you need someone to talk to,
+I'll do my best to be there for you.
+
+<br><br>
+
+<b>2.</b> I will always be ready to listen
+to your problems, worries and thoughts,
+just like you've listened to mine.
+
+<br><br>
+
+<b>3.</b> I will never judge you for who you are.
+You can always be yourself around me.
+
+<br><br>
+
+<b>4.</b> I will always try my best
+to keep a smile on your face
+and support you through both good days
+and difficult ones.
+
+<br><br>
+
+✨ These are not just words,
+but promises from a grateful friend. ✨
+</p>
+
+<p><b>Made with gratitude for Anvi 🤍</b></p>
 </div>
-
-<script>
-function openLetter(){
-document.getElementById("start").style.display="none";
-document.getElementById("page1").style.display="block";
-}
-
-function nextPage(num){
-document.querySelectorAll(".page").forEach(p=>{
-p.style.display="none";
-});
-document.getElementById("page"+num).style.display="block";
-}
-
-for(let i=0;i<25;i++){
-
-let heart=document.createElement("div");
-heart.className="float";
-heart.innerHTML="❤️";
-heart.style.left=Math.random()*100+"vw";
-heart.style.fontSize=(15+Math.random()*20)+"px";
-heart.style.animationDuration=(5+Math.random()*5)+"s";
-document.body.appendChild(heart);
-
-let butterfly=document.createElement("div");
-butterfly.className="float";
-butterfly.innerHTML="🦋";
-butterfly.style.left=Math.random()*100+"vw";
-butterfly.style.fontSize=(18+Math.random()*18)+"px";
-butterfly.style.animationDuration=(7+Math.random()*5)+"s";
-document.body.appendChild(butterfly);
-}
-</script>
-
-</body>
-</html>
